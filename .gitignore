@@ -1,0 +1,7 @@
+#Do not track the files matching the pattern below
+
+*.buildpath
+*.project
+*.settings
+*~
+
