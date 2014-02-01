@@ -16,8 +16,10 @@ require.config({
 		handlebars:'libs/handlebars/handlebars-runtime',
 		bootstrap:'libs/bootstrap/bootstrap.min',
 		jqueryui:'libs/jquery-ui-1.10.4/jquery-ui-1.10.4.custom.min',
-		//File style icon
-		bootstrapfs:'libs/bootstrap-filestyle/bootstrap-filestyle-1.0.3'
+		//File style icon 
+		//TODO: apply a nice style to input type="file"
+//		bootstrapfs:'libs/bootstrap-filestyle/bootstrap-filestyle-1.0.3',
+		jquerydf:'libs/jquery-dateFormat/jquery-dateFormat.min',
 	}, 	
 	shim:{
 		'underscore':{
@@ -35,19 +37,16 @@ require.config({
 		},
 
 		'bootstrap':{
-			deps:['jquery']
+			deps:['jquery'],
+			exports:'jquery'
 		},
-		
-		'bootstrapfs' :{
-			deps:['jquery']
+		'jquerydf':{
+			exports:'jquery'
 		}
-		
-		
-		
 	}
 });
 
-define(['jquery','underscore','backbone','handlebars','app','jqueryui','bootstrap','bootstrapfs'], function($,_,Backbone,Handlebars){
+define(['jquery','underscore','backbone','handlebars','app','jqueryui','bootstrap','jquerydf'], function($,_,Backbone,Handlebars){
 	Backbone.$ = $;
 	//Alias to JQuery's DOMReady function
 	//http://stackoverflow.com/questions/10371539/why-define-anonymous-function-and-pass-it-jquery-as-the-argument

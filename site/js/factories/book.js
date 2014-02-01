@@ -22,11 +22,21 @@ define(['views/book.tpl','models/book'], function(){
 		},
 		
   		render: function(){
+  			//console.log(this.model);
+  			var formattedDate = this.formatDateTime(this.model.get('releaseDate'));
+  			this.model.set('releaseDate', formattedDate);
+  			
+  			console.log("Cover image below ");
+  			console.log(this.model.get('coverImage'));
 			this.$el.append(this.template({
 				item : this.model.toJSON()
 			}));
 			return this;
 		},	
+		
+		formatDateTime : function(date){
+			return $.format.date( new Date( date ), 'MMMM yyyy' );
+		},
 		
 		deleteBook: function(){
 			console.log("Delete book in progress");

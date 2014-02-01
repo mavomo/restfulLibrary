@@ -35,6 +35,7 @@ mongoose.connect( 'mongodb://localhost/library_database' );
 
 //Schemas
 var Book = new mongoose.Schema({
+	coverImage:String,
     title: String,
     author: String,
     releaseDate: Date,
@@ -62,6 +63,7 @@ app.get( '/api/books', function( request, response ) {
 //Insert a new book
 app.post( '/api/books', function(request, response) {    
 	var book = new BookModel({
+		coverImage:request.body.coverImage,
         title: request.body.title,
         author: request.body.author,
         releaseDate: request.body.releaseDate,
@@ -94,6 +96,7 @@ app.post( '/api/books', function(request, response) {
 	    console.log( 'Updating book ' + request.body.title );    
 	    return BookModel.findById( request.params.id, function(err, book) {
 	    	
+	    	book.coverImage = request.body.coverImage;
 	        book.title = request.body.title;
 	        book.author = request.body.author;
 	        book.releaseDate = request.body.releaseDate;
