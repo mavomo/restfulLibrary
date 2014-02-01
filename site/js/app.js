@@ -11,6 +11,7 @@ define(['factories/library'], function(){
 		console.log("$: " + typeof $);
 		console.log("_: " + typeof _);
 		console.log("Backbone: " + typeof Backbone);
+		console.log("Bootstrap: " + typeof bootstrap);
 	};
 	
 	return {

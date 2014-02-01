@@ -28,7 +28,8 @@ define(['views/library.tpl','factories/book', 'collections/library'], function()
 		
   		render: function(){
 			this.$el.append(this.template({}));	
-			 $( '#releaseDate' ).datepicker();
+			 $( '#releaseDate' ).datepicker(); 
+
 			var _that = this;
 			_.each(this.collection.models, function ( book ) {
 				_that.renderBook(book);

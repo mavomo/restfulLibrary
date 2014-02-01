@@ -1,11 +1,39 @@
-<form id="addBook" action="#">
-        <div>
-            <label for="coverImage"> CoverImage: </label><input id="coverImage" type="file"/>
-            <label for="title"> Title: </label> <input id="title" type="text"/>
-            <label for="author"> Author: </label> <input id="author" type="text"/>
-            <label for="releaseDate"> Release date: </label><input id="releaseDate" type="text"/>
-            <label for="keywords"> Keywords: </label> <input id="keywords" type="text"/>
-            <button id="add"> Add </button>
+<form role="form" class="form-horizontal" id="addBook">
+   <div class="form-group">
+    <label for="coverImage" class="control-label col-xs-2"> Cover Image</label>
+     <div class="col-xs-10">
+    	<input type="file" class="filestyle" data-icon="false" id="coverImage"/> 
+     </div>
+  </div>
+  <div class="form-group">
+    <label for="title" class="control-label col-xs-2"> Title</label> 
+      <div class="col-xs-10">
+    	<input type="text" class="form-control" id="title"/>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="author" class="control-label col-xs-2" > Author </label> 
+      <div class="col-xs-10">
+    	<input type="text" class="form-control" id="author"/>
+     </div>
+  </div>
+  <div class="form-group">
+    <label for="releaseDate" class="control-label col-xs-2" > Release date:  </label> 
+     <div class="col-xs-10">
+    	<input type="text" class="form-control" id="releaseDate"/>
+    </div>
+  </div>
+ <div class="form-group">
+    <label for="keywords" class="control-label col-xs-2"> Keywords:  </label> 
+    <div class="col-xs-10">
+    	<input type="text" class="form-control" id="keywords"/>
+    </div>
+  </div>
+  
+  <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-10">
+                <button type="submit" class="btn btn-primary" id="add">Add</button>
+            </div>
         </div>
-    </form>
+</form>
     
