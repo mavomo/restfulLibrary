@@ -10,7 +10,6 @@ define(['views/book.tpl','models/book'], function(){
 		
 		tagName: 'div',
 		className: 'bookContainer',
-		
 		initialize: function( initialBook ){
 			console.log("Entering the book factory");
 			_.extend(this, _.pick(initialBook, ['bookItem']));
@@ -26,8 +25,6 @@ define(['views/book.tpl','models/book'], function(){
   			var formattedDate = this.formatDateTime(this.model.get('releaseDate'));
   			this.model.set('releaseDate', formattedDate);
   			
-  			console.log("Cover image below ");
-  			console.log(this.model.get('coverImage'));
 			this.$el.append(this.template({
 				item : this.model.toJSON()
 			}));

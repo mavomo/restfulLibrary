@@ -28,7 +28,8 @@ define(['views/library.tpl','factories/book', 'collections/library'], function()
 		
   		render: function(){
 			this.$el.append(this.template({}));	
-			 $( '#releaseDate' ).datepicker(); 
+			 $( '#releaseDate' ).datepicker();
+			
 			var _that = this;
 			_.each(this.collection.models, function ( book ) {
 				_that.renderBook(book);
@@ -49,14 +50,21 @@ define(['views/library.tpl','factories/book', 'collections/library'], function()
 			e.preventDefault();
 			console.log("adding new book!");
 		    var formData = {}; 
+		    var view= this;
 			 $('#addBook div').children('input').each(function(i, el) {
 				if ($(el).val() != '') {
+					
 					 if( el.id === 'keywords' ) {
 			                formData[ el.id ] = [];
 			                _.each( $( el ).val().split( ' ' ), function( keyword ) {
 			                    formData[ el.id ].push({ 'keyword': keyword });
 			                });
-			            } else if( el.id === 'releaseDate' ) {
+			            }
+					 	else if(el.id==='coverImage'){
+			            	formData[ el.id ] = view.updateCoverImageUrl($( el ).val());
+			            }
+					 
+					 	else if( el.id === 'releaseDate' ) {
 			                formData[ el.id ] = $( '#releaseDate' ).datepicker( 'getDate' ).getTime();
 			            }
 			            else {
@@ -71,9 +79,18 @@ define(['views/library.tpl','factories/book', 'collections/library'], function()
 			 console.log("formData ",formData);
 			 
 			 this.collection.create( formData );
+		},
+		
+		updateCoverImageUrl: function(params,baseUrl){
+			baseUrl="img/covers"
+  			var splitTab = params.split("\\");
+  			if(splitTab[1]==="fakepath"){
+  				params = baseUrl+'/'+splitTab[2];
+  			}
+  		return params;
 		}
 		
-
+		
 	});
 
 	return {
