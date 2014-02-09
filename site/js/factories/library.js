@@ -63,10 +63,14 @@ define(['views/library.tpl','factories/book', 'collections/library'], function()
 					
 					 if( el.id === 'keywords' ) {
 			                formData[ el.id ] = [];
+			                console.log("Debugging why keyword is not persisted");			               
 			                _.each( $( el ).val().split( ' ' ), function( keyword ) {
+			                	console.log(keyword);
 			                    formData[ el.id ].push({ 'keyword': keyword });
 			                });
+			                
 			            }
+					 
 					 	else if(el.id==='coverImage'){
 			            	formData[ el.id ] = view.updateCoverImageUrl($( el ).val());
 			            }

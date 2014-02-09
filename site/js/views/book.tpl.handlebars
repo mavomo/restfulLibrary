@@ -3,6 +3,10 @@
         <li>{{item.title}}</li>
         <li>{{item.author}}</li>
         <li>{{item.releaseDate}}</li>
-        <li>{{item.keywords}}</li>
+        <li>
+        {{#each item.keywords}}
+        	{{keyword}}
+        {{/each}}
+        </li>
     </ul>
 <button class="delete">Delete</button>
