@@ -1,5 +1,5 @@
-LibraryRestFulAPI
-=================
+RESTFUL API LIBRARY
+===================
 
 This is a personal customized version of the exercise 2 of Addy Osmani's excellent book : Developing Backbone.js Applications.
 
