@@ -1,13 +1,13 @@
 /*****************************************
-	Backbone tutorial 
-	Organising code with require.js 
-	CONFIGURATION FILE
+	Config file
 ******************************************/
+
 //Configuration des alias 
 //http://stackoverflow.com/questions/13605600/requirejs-difference-between-requirejs-and-require-functions
 require.config({
 	//Force files to be retrieved from the server, not the cache.
 	urlArgs: "bust=" +  (new Date()).getTime(),	
+	
 	waitSeconds: 200,
 	paths: {
 		jquery:'libs/jquery/1.10.2/jquery',
@@ -16,9 +16,8 @@ require.config({
 		handlebars:'libs/handlebars/handlebars-runtime',
 		bootstrap:'libs/bootstrap/bootstrap.min',
 		jqueryui:'libs/jquery-ui-1.10.4/jquery-ui-1.10.4.custom.min',
-		//File style icon 
-		//TODO: apply a nice style to input type="file"
-//		bootstrapfs:'libs/bootstrap-filestyle/bootstrap-filestyle-1.0.3',
+		
+		//dateFormat
 		jquerydf:'libs/jquery-dateFormat/jquery-dateFormat.min',
 	}, 	
 	shim:{
@@ -38,10 +37,10 @@ require.config({
 
 		'bootstrap':{
 			deps:['jquery'],
-			exports:'jquery'
 		},
+		
 		'jquerydf':{
-			exports:'jquery'
+			deps:['jquery'],
 		}
 	}
 });

@@ -43,9 +43,26 @@ define(['views/library.tpl','factories/book', 'collections/library'], function()
 		},
 		
 		events:{
-		    'click #add': 'addNewBook'
-		   },
-		
+		    'click #add': 'addNewBook',
+		    'change .btn-file :file': 'selectFile'
+		},
+		   
+		 selectFile: function(e){
+			e.preventDefault();
+			console.log("show me global");
+			console.log(e);
+			
+			console.log("Show me current target value");
+			console.log(e.currentTarget.value);
+			finalSrc = this.updateCoverImageUrl(e.currentTarget.value);
+			
+			console.log("Show me updated name");
+			console.log(finalSrc); 
+			console.log("Input value coverImage");
+			$('input#coverImage').val(finalSrc);
+			console.log ( $('input#coverImage').val());
+		 },
+		 
 		addNewBook: function( e ){
 			e.preventDefault();
 			console.log("adding new book!");
